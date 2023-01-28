@@ -1,0 +1,48 @@
+<html>
+	<title>ninja game2</title>
+<body>
+	<div id='background'>
+        <div id='character' style='position:absolute; top:100px; left:450px; background-image: url("img/down1.png"); width:59px; height:86px;'></div>
+    </div>
+    <script type="text/javascript">
+
+	    var leftValue = 450, topValue = 100, walk=1;
+
+    	/*function update(){
+    		document.getElementById("character").style.left = leftValue+"px";
+    		document.getElementById("character").style.top = topValue+"px";
+			document.getElementById("character").style.backgroundImage = "url(img/"+direction+"1.png)";
+    		
+    	}*/
+		
+    	document.onkeydown = function(e){
+    		console.log(e);
+    		if(walk==1){walk=2;}
+    		else if (walk==2){walk=1;}
+    		if(e.keyCode == 37 && leftValue>0) { // LEFT
+    			leftValue = leftValue - 10;
+    			document.getElementById("character").style.left = leftValue+"px";
+    			document.getElementById("character").style.backgroundImage = "url(img/left"+walk+".png)";
+    			
+    		}
+    		else if (e.keyCode == 39 && leftValue<1000) { // RIGHT
+    			leftValue = leftValue + 10;
+    			document.getElementById("character").style.left = leftValue+"px";
+    			document.getElementById("character").style.backgroundImage = "url(img/right"+walk+".png)";   		
+    		}
+    		else if (e.keyCode == 40 && topValue<500) { // DOWN
+				topValue = topValue + 10;
+				document.getElementById("character").style.top = topValue+"px";
+    			document.getElementById("character").style.backgroundImage = "url(img/down"+walk+".png)";
+    		}
+    		// up
+			else if (e.keyCode == 38 && topValue>0) { // up
+				topValue = topValue - 10;
+				document.getElementById("character").style.top = topValue+"px";
+    			document.getElementById("character").style.backgroundImage = "url(img/top"+walk+".png)";
+    		}
+    		
+    	}
+    </script>
+</body>
+</html>
